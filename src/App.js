@@ -1,11 +1,14 @@
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import "./App.css";
 import Alert from "./components/Alert";
 import Navbar from "./components/Navbar";
 import TextForm from "./components/TextForm";
-// import About from './components/About';
-
-
+import About from './components/About';
+import {
+  Routes,
+  Route
+} from "react-router-dom";
+ 
 
 function App() {
   const [mode, setMode] = useState('light');
@@ -45,18 +48,24 @@ function App() {
   }
   return (
     <>
+    {/* {<Navbar title="TextUtils" aboutText="About TextUtils"/>} */}
+    {/* <Navbar /> */}
+    <Routes>
+      <Fragment>
     <Navbar title = "TextUtils" aboutText = "About text" mode = {mode} toggleMode = {toggleMode}/>
     <Alert alert={alert}/>
-    {/* <Navbar /> */}
+    </Fragment>
     <div className="container my-3">
-     <TextForm showAlert={showAlert} heading = "Enter the text to analyze below" mode = {mode}/>
-     {/* <About/> */}
-    
+    {/* <Switch> */}
+          <Route path="/" element={<TextForm showAlert={showAlert} heading = "Enter the text to analyze below" mode = {mode}/>}/>
+          <Route path="/about" element={<About/>}/>
+     {/* </Switch> */}
     </div>
-   
+    </Routes>
     </>
 
   );
+
 }
 
 export default App;
