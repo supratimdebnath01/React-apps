@@ -46,26 +46,19 @@ function App() {
 
     }
   }
+
   return (
     <>
-    {/* {<Navbar title="TextUtils" aboutText="About TextUtils"/>} */}
-    {/* <Navbar /> */}
-    <Routes>
-      <Fragment>
-    <Navbar title = "TextUtils" aboutText = "About text" mode = {mode} toggleMode = {toggleMode}/>
-    <Alert alert={alert}/>
-    </Fragment>
-    <div className="container my-3">
-    {/* <Switch> */}
-          <Route path="/" element={<TextForm showAlert={showAlert} heading = "Enter the text to analyze below" mode = {mode}/>}/>
-          <Route path="/about" element={<About/>}/>
-     {/* </Switch> */}
-    </div>
-    </Routes>
+      <Navbar title = "TextUtils" aboutText = "About text" mode = {mode} toggleMode = {toggleMode}/>
+      <Alert alert={alert}/>
+      <div className="container my-3">
+      <Routes>
+        <Route path="/" element={<TextForm showAlert={showAlert} heading = "Enter the text to analyze below" mode = {mode}/>}/>
+        <Route path="/about" element={<About/>}/>
+      </Routes>
+      </div>
     </>
-
   );
-
 }
 
 export default App;
